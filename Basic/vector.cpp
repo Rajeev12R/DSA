@@ -87,5 +87,28 @@ int main()
         cout << it << " ";
     }
 
-    return 0;
+    vector<int> del;
+    cout << "\nNew vector: \t\t";
+    del.push_back(23);
+    del.push_back(24);
+    del.push_back(25);
+    del.push_back(26);
+    del.push_back(27);
+    del.push_back(28);
+    for (auto it : del)
+    {
+        cout << it << " ";
+    }
+    cout << "\nDeletion in vector: \t";
+    del.erase(del.begin() + 1);
+    for (auto n : del)
+    {
+        cout << n << " ";
+    }
+    cout << "\nDeletion in vector: \t";
+    del.erase(del.begin() + 3, del.end());
+    for (auto it : del)
+    {
+        cout << it << " ";
+    }
 }
