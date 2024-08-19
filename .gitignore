@@ -1,3 +1,12 @@
 tempCodeRunnerFile.cpp
 tempCodeRunnerFile
-*[!.cpp]
+.vscode/
+
+# # Ignore all files
+# *
+
+# # Do not ignore directories, so that the un-ignoring of .cpp files works recursively
+# !*/
+
+# # Do not ignore .cpp files
+# !*.cpp
