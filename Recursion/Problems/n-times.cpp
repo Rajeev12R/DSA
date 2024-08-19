@@ -1,17 +1,16 @@
 #include <bits/stdc++.h>
 using namespace std;
-int i = 0;
-int n = 5;
-void f(i, n)
+void f(int i, int n)
 {
     if (i > n)
         return;
     cout << "Rajeev" << endl;
-    i++;
-    f(i, n);
+    f(i + 1, n);
 }
 int main()
 {
+    int n, i = 1;
+    cin >> n;
     f(i, n);
     return 0;
 }
