@@ -1,18 +1,16 @@
 #include <bits/stdc++.h>
 using namespace std;
-void f(int i, int sum)
+int f(int n)
 {
-    if (i < 0)
+    if (n == 0)
     {
-        cout << sum;
-        return;
+        return 0;
     }
-    f(i - 1, sum + i);
+    return n + f(n - 1);
 }
 int main()
 {
     int n;
     cin >> n;
-    f(n, 0);
-    return 0;
+    cout << f(n);
 }
