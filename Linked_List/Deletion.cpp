@@ -1,5 +1,5 @@
 // Head Deletion
-
+/*
 #include <bits/stdc++.h>
 using namespace std;
 class node
@@ -69,5 +69,93 @@ int main()
 
     head = deleteHead(head);
     printHead(head);
+    return 0;
+}
+
+*/
+
+// Tail Deletion
+#include <bits/stdc++.h>
+using namespace std;
+class node
+{
+public:
+    int data;
+    node *next;
+
+public:
+    node(int data1, node *next1)
+    {
+        data = data1;
+        next = next1;
+    }
+
+public:
+    node(int data1)
+    {
+        data = data1;
+        next = nullptr;
+    }
+};
+node *insert(node *head, int val)
+{
+    node *newE = new node(val);
+    if (head == nullptr)
+    {
+        head = newE;
+        return head;
+    }
+    node *temp = head;
+    while (temp->next)
+    {
+        temp = temp->next;
+    }
+    temp->next = newE;
+    return head;
+}
+node *deleteTail(node *head)
+{
+    if (head == nullptr)
+    {
+        return nullptr;
+    }
+    if (head->next == nullptr)
+    {
+        delete head;
+        return nullptr;
+    }
+    node *temp = head;
+    while (temp->next->next != nullptr)
+    {
+        temp = temp->next;
+    }
+    delete temp->next;
+    temp->next = nullptr;
+    return head;
+}
+
+void printAll(node *head)
+{
+    node *temp = head;
+    while (temp)
+    {
+        cout << temp->data << " ";
+        temp = temp->next;
+    }
+}
+int main()
+{
+    int n;
+    cin >> n;
+    node *head = nullptr;
+    for (int i = 0; i < n; i++)
+    {
+        int val;
+        cin >> val;
+        head = insert(head, val);
+    }
+    head = deleteTail(head);
+    printAll(head);
+
     return 0;
 }
