@@ -158,7 +158,6 @@ int main()
 
     return 0;
 }
-*/
 
 // Kth position deletion
 
@@ -255,6 +254,106 @@ int main()
     cin >> k;
 
     head = deletek(head, k);
+    printAll(head);
+
+    return 0;
+}
+
+*/
+
+// Element Deletion
+
+#include <bits/stdc++.h>
+using namespace std;
+class node
+{
+public:
+    int data;
+    node *next;
+
+public:
+    node(int data1, node *next1)
+    {
+        data = data1;
+        next = next1;
+    }
+
+public:
+    node(int data1)
+    {
+        data = data1;
+        next = nullptr;
+    }
+};
+
+node *insert(node *head, int val)
+{
+    node *newE = new node(val);
+    if (head == nullptr)
+    {
+        head = newE;
+        return head;
+    }
+    node *temp = head;
+    while (temp->next)
+    {
+        temp = temp->next;
+    }
+    temp->next = newE;
+    return head;
+}
+node *deletek(node *head, int el)
+{
+    if (head == NULL)
+    {
+        return head;
+    }
+    if (head->data == el)
+    {
+        node *temp = head;
+        head = head->next;
+        delete temp;
+        return head;
+    }
+    node *temp = head;
+    node *prev = nullptr;
+    while (temp != nullptr)
+    {
+        if (temp->data == el)
+        {
+            prev->next = prev->next->next;
+            delete temp;
+            break;
+        }
+        prev = temp;
+        temp = temp->next;
+    }
+    return head;
+}
+void printAll(node *head)
+{
+    node *temp = head;
+    while (temp)
+    {
+        cout << temp->data << " ";
+        temp = temp->next;
+    }
+}
+int main()
+{
+    int n;
+    cin >> n;
+    node *head = nullptr;
+    for (int i = 0; i < n; i++)
+    {
+        int val;
+        cin >> val;
+        head = insert(head, val);
+    }
+    int el;
+    cin >> el;
+
+    head = deletek(head, el);
     printAll(head);
 
     return 0;
