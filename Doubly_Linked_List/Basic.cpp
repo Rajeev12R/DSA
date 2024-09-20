@@ -31,7 +31,7 @@ node *insert(vector<int> &arr)
     {
         node *temp = new node(arr[i], nullptr, prev);
         prev->next = temp;
-        prev = temp;
+        prev = prev->next;
     }
     return head;
 }
@@ -58,3 +58,4 @@ int main()
 
     return 0;
 }
+
